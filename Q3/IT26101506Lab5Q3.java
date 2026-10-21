@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class IT26101506Lab5Q3{
+	public static void main(String[] args){
+		
+		final double ROOM_CHARGES_PER_DAY = 48000.00;
+		final double DISCOUNT_3_4_DAYS = 0.1;
+		final double DISCOUNT_5_OR_MORE_DAYS = 0.2;
+		
+		int startDate , endDate ,numberOfDaysReserved;
+		double totalAmountBeforeDiscount , discountAmount , totalAmountToBePaid;
+		
+		double discountRate = 0;
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the start date (1-31)");
+		startDate = input.nextInt();
+		
+		System.out.print("Enter the end date (1-31)");
+		endDate = input.nextInt();
+		
+		//Validation check
+		if (startDate < 1 || startDate > 31 || endDate < 1 || endDate > 31){
+			System.out.println("Error: Days must be between 1 and 31");
+			
+			return;   // exit the program
+		}
+		
+		if (startDate >= endDate) {
+			System.out.println("Error: Start date must be less than end date");
+			
+			return; // exit the program
+		}
+		// Calculate number of days reserved
+		numberOfDaysReserved = endDate - startDate;
+		
+		//Check if the reservation is eligible for discount
+		if(numberOfDaysReserved >= 3 && numberOfDaysReserved <= 4) {
+			discountRate = DISCOUNT_3_4_DAYS;
+		}
+		else if (numberOfDaysReserved >= 5){
+			discountRate = DISCOUNT_5_OR_MORE_DAYS;
+		}
+		
+		//Calculate total amount to be paid
+		totalAmountBeforeDiscount = numberOfDaysReserved * ROOM_CHARGES_PER_DAY;
+		discountAmount = totalAmountBeforeDiscount * discountRate;
+		totalAmountToBePaid = totalAmountBeforeDiscount - discountAmount;
+		
+		System.out.println();
+		System.out.println("Room Charges per day: " + ROOM_CHARGES_PER_DAY + "/=");
+		System.out.println("Number of Days Reserved: " + numberOfDaysReserved);
+		System.out.println("Total Amount to be Paid: " + totalAmountToBePaid);
+	}
+}
+		
+		
+		
+			
+		
