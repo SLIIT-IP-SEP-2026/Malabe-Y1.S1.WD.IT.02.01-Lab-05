@@ -3,8 +3,8 @@ import java.util.Scanner;
   public static void main(String[] args){
   
   final double Room_charge = 48000.0;
-  final double dis_3_4_days = 0.1;
-  final double dis_5_more = 0.2;
+  final double dis_3_4_days = 0.9;
+  final double dis_5_more = 0.8;
   Scanner input = new Scanner(System.in);
   
   
